@@ -1,0 +1,213 @@
+:root{
+    --White: rgb(255, 255, 255);
+    --Very-Dark-Magenta: hsl(300, 43%, 22%);
+    --Soft-Pink: hsl(333, 80%, 67%);
+    --Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+    --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+}
+@font-face {
+    font-family: League Spartan;
+    src: url("./font/LeagueSpartan-VariableFont_wght.ttf");
+}
+.attribution {
+        font-size: 0.75rem;
+        text-align: center;
+      }
+      .attribution a {
+        color: #7d6ee7;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+body{
+    background-image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg");
+    background-position: left top, right bottom;
+    background-repeat: no-repeat;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    font-family: League Spartan, sans-serif;
+    margin: 0;
+}
+
+
+/* =========================
+|GENERAL STYLINGS|
+========================= */
+
+a{
+    text-decoration: none;
+    color: initial;
+}
+li{
+    list-style: none;
+}
+.section{
+    padding-inline: 5%;
+    
+}
+button{
+    cursor: pointer;
+    border: none;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+
+/* MAIN CONTAINER */
+.main-container{
+    max-width: 80rem;
+    padding-block: 5em;
+    display: grid;
+    row-gap: 2.5em;
+}
+.clr-thick-vio{
+    font-weight: 700;
+    color: var(--Very-Dark-Magenta);
+}
+p{
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -.5px;
+    word-spacing: normal;
+}
+.reviewer__card, .review{
+    border-radius: .5rem;
+}
+/* =========================
+      |SECTION PRODUCT|
+========================= */
+.section__product__review{
+    display: grid;
+    row-gap: 2.5em;
+}
+.product__page{
+    text-align: center;
+}
+.product__page h1{
+    font-size: 2.5rem;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    margin-bottom: 1.5rem;
+}
+.product__page p{
+    color: var(--Dark-Grayish-Magenta);
+}
+.review__side{
+    display: grid;
+    gap: 1em;
+}
+.review{
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    row-gap: 1rem;
+    background-color: var(--Light-Grayish-Magenta);
+    padding-block: .75rem;
+}
+.review .stars{
+    display: flex;
+    place-items: center;
+    gap: .5rem;
+}
+/* =========================
+      |SECTION REVIEWER CARD|
+========================= */
+.section__reviewer__card{
+    display: grid;
+    row-gap: 1rem;
+}
+.reviewer__card{
+    background-color: var(--Very-Dark-Magenta);
+    color: var(--White);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+}
+.card__profile{
+    display: flex;
+    column-gap: 1.5em;
+    margin-bottom: 1.5rem;
+}
+.c__profile--img img{
+    width: 2.5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+.c__profile--user [class*=badge] b{
+    color: var(--Soft-Pink);
+    font-weight: 500;
+}
+
+/* =========================
+      |MEDIA QUERY|
+========================= */
+@media (min-width: 55em) {
+    body{
+        background-image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
+
+    }
+    .main-container{
+        row-gap: 3.5em;
+    }
+    .section__product__review{
+        grid-template-columns: .61fr 1fr;
+        column-gap: clamp(3em, 20vh, 20em);
+        justify-content: center;
+    }
+    .product__page{
+        text-align: left;
+    }
+    .product__page h1{
+        font-size: 3rem;
+    }
+    .review__side{
+        grid-template-columns: repeat(10, 1fr);
+
+    }
+    .review{
+        padding-inline: clamp(1.5rem, 8vh, 2rem) .5rem;
+        column-gap: 1.5em;
+        flex-direction: row;
+        place-items: unset;
+        align-items: center;
+        justify-content: left;
+    }
+    .review:first-child{
+        grid-column: 1 / span 9;
+    }
+    .review:nth-child(2){
+        grid-column: 2 / span 9;
+    }
+    .review:nth-child(3){
+        grid-column: 3 / span 9;
+    }
+    .section__reviewer__card{
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        column-gap: 1.5rem;
+
+    }
+    @media (min-width: 66em) {
+        .reviewer__card:first-child{
+            grid-row: 1 / span 10;
+            /* align-self: stretch; */
+        }
+        .reviewer__card:nth-child(2){
+            grid-row: 2 / span 10;
+        }
+        .reviewer__card:nth-child(3){
+            grid-row: 3 / span 10;
+        }
+    }
+}
