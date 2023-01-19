@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Social proof section](https://social-proof-sectionproject.nelify.app)
+- Live Site URL: [Social proof section](https://social-proof-sectionproject.netlify.app)
 
 ## My process
 
