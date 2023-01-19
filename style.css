@@ -37,6 +37,7 @@ body{
     font-size: 1.1em;
     font-family: League Spartan, sans-serif;
     margin: 0;
+    overflow-x: hidden;
 }
 
 
@@ -90,9 +91,12 @@ p{
 .section__product__review{
     display: grid;
     row-gap: 2.5em;
+    animation: product-animation 2.5s 1 linear;
+    
 }
 .product__page{
     text-align: center;
+    animation: product-animation-left 1.5s 1 ease-in-out;
 }
 .product__page h1{
     font-size: 2.5rem;
@@ -106,6 +110,7 @@ p{
 .review__side{
     display: grid;
     gap: 1em;
+    animation: product-animation-right 1.5s 1 ease-in-out;
 }
 .review{
     display: flex;
@@ -126,6 +131,7 @@ p{
 .section__reviewer__card{
     display: grid;
     row-gap: 1rem;
+    animation: review-animation 2s 1 ease-in-out;
 }
 .reviewer__card{
     background-color: var(--Very-Dark-Magenta);
@@ -134,6 +140,13 @@ p{
     flex-direction: column;
     justify-content: center;
     padding: 2em;
+    animation: review-animation 1.5s 1 ease-in-out;
+}
+.reviewer__card:nth-child(2){
+    animation-delay: .5s;
+}
+.reviewer__card:nth-child(3){
+    animation-delay: 1s;
 }
 .card__profile{
     display: flex;
@@ -149,7 +162,41 @@ p{
     color: var(--Soft-Pink);
     font-weight: 500;
 }
-
+/* =========================
+      |ANIMATIONS|
+========================= */
+@keyframes product-animation {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes product-animation-left {
+    0%{
+        transform: translateX(-300%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes product-animation-right {
+    0%{
+        transform: translateX(300%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes review-animation {
+    0%{
+        transform: translateY(300%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
 /* =========================
       |MEDIA QUERY|
 ========================= */
